@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var odiv = document.getElementById("div1");
+	var div1 = addclass(odiv , "box12");
+
+	function addclass(obj , classname){
+		if(obj.className == ""){     //没有class
+			obj.className = classname;
+		}else if(obj.className == classname){   //如果有class  要添加的class在原本的class里面存在
+			obj.className = classname;
+		}else{
+			obj.className += " " + classname;   //如果有class  要添加的class在原本的class里面不存在
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<div>
+	<div id="div1" class="box1">
+		这里原本是没有class的
+	</div>
+</div>
+</body>
+</html>

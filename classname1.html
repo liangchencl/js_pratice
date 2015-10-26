@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>传参</title>
+<script>
+window.onload=function(){
+	var oul1 = document.getElementById("oul1");
+	var oul2 = document.getElementById("oul2");
+
+	var ali = getelementbyclassname( oul1 , "p" , "box");
+
+	function getelementbyclassname( parent , tagname , classname){
+
+		var all = parent.getElementsByTagName(tagname);
+		var arr = [];
+		for(var i=0;i<all.length;i++){
+			// if(all[i].className == classname ){
+			// 	arr.push(all[i]);
+			// }
+
+			var aclass = all[i].className.split(" ");  //以空格拆分字符串转换成数组
+
+			for(var j = 0; j<aclass.length ; j++){
+
+				if(aclass[j] == classname){
+
+					arr.push(all[i]);
+
+					break;    //跳出循环   防止同一个class里面写重复了
+
+				}
+
+			}
+
+		}
+		return arr;
+	}
+
+	alert(ali.length);
+
+	console.log(ali)
+
+	for(var i = 0; i < ali.length; i++){
+		ali[i].style.background="red";
+	}
+}
+</script>
+</head>
+
+<body>
+<div>
+	<ul id="oul1">
+		<li>111</li>
+		<li class="box box">222</li>
+		<li class="box1">333</li>
+		<li class="box box2">444</li>
+		<p class="box">5555</p>
+	</ul>
+	<ul id="oul2">
+		<li>111</li>
+		<li class="box">222</li>
+		<li>333</li>
+		<li class="box">444</li>
+	</ul>
+</div>
+</body>
+</html>

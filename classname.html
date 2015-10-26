@@ -4,22 +4,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>无标题文档</title>
 <script>
-window.onload = function() {
-	var oForm = document.getElementById('form1');
-	//var oText = document.getElementById('text1');
-	//获取表单中一个元素  表单.元素name
-	document.onclick = function() {
-		//alert(oText.value);
+window.onload=function(){
 
-		alert( oForm.username.value );
+	var ali = getelementbyclassname();
+
+	function getelementbyclassname(){
+
+		var all = document.getElementsByTagName("*");
+		var arr = [];
+		for(var i=0;i<all.length;i++){
+			if(all[i].className == "box" ){
+				arr.push(all[i]);
+			}
+		}
+		return arr;
+	}
+
+	alert(ali.length);
+
+	console.log(ali)
+
+	for(var i = 0; i < ali.length; i++){
+		ali[i].style.background="red";
 	}
 }
 </script>
 </head>
 
 <body>
-	<form id="form1">
-    	<input type="text" id="text1" name="username" value="" />
-    </form>
+<div>
+	<ul id="oul">
+		<li>111</li>
+		<li class="box">222</li>
+		<li>333</li>
+		<li class="box">444</li>
+	</ul>
+</div>
 </body>
 </html>
