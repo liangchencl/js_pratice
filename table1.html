@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>表格的相关操作01</title>
+<script>
+window.onload=function(){
+
+/*
+  	tHead        :     表格头		 唯一
+	tBodies      :     表格正文      注意这里是复数形式    可以有多个
+	tFoot     	 :     表格尾		 唯一
+		rows     :     行			 可以有多个
+		cells    :     列			 可以有多个
+*/
+var otab = document.getElementById("tab1");
+//
+alert(otab.tBodies[1].rows[1].cells[1].innerHTML);    // 汤姆1
+
+
+}
+</script>
+</head>
+
+<body>
+<div>
+	<table id="tab1" width="100%" border="1px" cellpadding="5" cellspacing="0">
+		<thead>
+			<tr>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>性别</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>001</td>
+				<td>小米</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>汤姆</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>003</td>
+				<td>露西</td>
+				<td>女</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr>
+				<td>001</td>
+				<td>小米1</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>汤姆1</td>
+				<td>男</td>
+			</tr>
+			<tr>
+				<td>003</td>
+				<td>露西1</td>
+				<td>女</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
