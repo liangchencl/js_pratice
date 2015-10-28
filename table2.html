@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>表格的相关操作01</title>
+<script>
+window.onload=function(){
+
+/*
+  	tHead        :     表格头		 唯一
+	tBodies      :     表格正文      注意这里是复数形式    可以有多个
+	tFoot     	 :     表格尾		 唯一
+		rows     :     行			 可以有多个
+		cells    :     列			 可以有多个
+*/
+
+//
+//alert(otab.tBodies[1].rows[1].cells[1].innerHTML);    // 汤姆1
+
+
+
+var data = [
+	{id:1,username:"小米",sex:"男"},
+	{id:2,username:"汤姆",sex:"男"},
+	{id:3,username:"leo",sex:"女"},
+	{id:4,username:"小美",sex:"女"},
+]
+var tbody = document.getElementById("tbody");
+
+for(var i =0 ; i < data.length ; i++){
+	var otr = document.createElement("tr");
+
+	//隔行变色
+	if (i % 2 ) {
+		otr.style.background = "#abcdef";
+	}else{
+		otr.style.background = "#ffffff";
+	};
+
+	var otd = document.createElement("td");
+	otd.innerHTML = data[i].id;
+	otr.appendChild(otd);
+
+	var otd = document.createElement("td");
+	otd.innerHTML = data[i].username;
+	otr.appendChild(otd);
+
+	var otd = document.createElement("td");
+	otd.innerHTML = data[i].username;
+	otr.appendChild(otd);
+
+	var otd = document.createElement("td");
+	//otd.innerHTML = "&nbsp;";     //这样写是兼容到ie7，不然可以直接留空 "";
+	var oa = document.createElement("a");
+	oa.innerHTML = "操作";
+	oa.href = "javascript:;";
+	otd.appendChild(oa);
+	oa.onclick = function(){
+		tbody.removeChild(this.parentNode.parentNode);
+		for (var i = 0; i < tbody.rows.length; i++) {
+				if( i % 2 ){
+					tbody.rows[i].style.background = "#abcdef";
+				}else{
+					tbody.rows[i].style.background = "#ffffff";
+				}
+			}
+	}
+
+	otr.appendChild(otd);
+
+	tbody.appendChild(otr);
+}
+
+
+
+}
+</script>
+</head>
+
+<body>
+<div>
+	<table id="tab1" width="100%" border="1px" cellpadding="5" cellspacing="0">
+		<thead>
+			<tr>
+				<td>编号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody id="tbody"></tbody>
+
+	</table>
+</div>
+</body>
+</html>
