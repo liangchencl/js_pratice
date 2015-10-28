@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>表格的相关操作01</title>
+<link rel="stylesheet" href="">
+<script>
+window.onload=function(){
+	var oform = document.getElementById("form");
+	//  获取input里面元素的另一种方法，不一定非要用id，这里用的是name属性
+	//  alert(oform.text1.value);
+
+	// onchange 事件    当值发生改变时触发！
+
+	// text 	当光标离开时如果内容有变化则触发
+	oform.text1.onchange = function(){
+		alert(this.value);
+	}
+
+	/*
+		radio/checkbox 	标准下 只要改变了就触发
+				非标准下焦点离开了如果内容有变化则触发
+	*/
+	oform.sex1[0].onchange = function(){
+		// alert(0)
+		//alert(this.value)
+	}
+	oform.web[0].onchange = function(){
+		// alert(0)
+	}
+
+	oform.city.onchange = function(){
+		//alert(this.value)
+	}
+
+	oform.btn.onclick=function(){
+		for (var i = 0; i < oform.sex1.length; i++) {
+			if(oform.sex1[i].checked){
+				alert(oform.sex1[i].value);
+			}
+		};
+	}
+}
+</script>
+</head>
+
+<body>
+<div>
+<form action="#" id="form">
+	<input type="text" name="text1" value="内容">
+
+	<label><input type="radio" value="男" name="sex1" checked>男</label>
+	<label><input type="radio" value="女" name="sex1" >女</label>
+
+	<label><input type="checkbox" value="html" name="web" >html</label>
+	<label><input type="checkbox" value="css" name="web" >css</label>
+	<label><input type="checkbox" value="js" name="web" >js</label>
+	<label><input type="checkbox" value="div" name="web" >div</label>
+
+	<select name="city" id="">
+		<option value="请选择城市">请选择城市</option>
+		<option value="北京">北京</option>
+		<option value="上海">上海</option>
+		<option value="深圳">深圳</option>
+	</select>
+
+	<input type="button" value="按钮" name="btn">
+</form>
+</div>
+</body>
+</html>
