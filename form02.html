@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>表格的相关操作01</title>
+<link rel="stylesheet" href="">
+<script>
+window.onload=function(){
+	var form1 = document.getElementById("form");
+	form1.onsubmit = function(){
+		if(form1.text1.value == ""){
+			alert("请输入内容");
+			return false;
+		}
+	}
+	//onsubmit  按钮点击事件  当表单提交是触发
+	//    submit()  方法  提交表单
+	// 也可以用 form1.dosubmit.onclick 代替
+
+	// setTimeout(function(){
+	// 		form1.submit();
+	// 	},2000)
+
+
+	// onreset  事件   当表单重置的时候触发
+	// confirm("内容") 方法 用于弹出一个带有指定消息(括号里面的内容)，并且带有  确定和取消  按钮的对话框
+	//  他的返回值是 true 或者是false
+	form1.onreset = function(){
+		return confirm("你确定要重置么？");
+	}
+}
+
+
+
+
+</script>
+</head>
+
+<body>
+<div>
+<form action="http://www.baidu.com" id="form">
+	<input type="text" name="text1" value="">
+	<input type="submit" name="dosubmit" value="提交">
+	<input type="reset" name="doreset" value="重置">
+</form>
+</div>
+</body>
+</html>

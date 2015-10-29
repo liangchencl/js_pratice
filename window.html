@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>窗口大小</title>
+<link rel="stylesheet" href="">
+<script>
+window.onload=function(){
+	/*
+		可视区的宽高
+		document.documentElement.clientWidth;
+		document.documentElement.clientHeight;
+	*/
+	// alert(document.documentElement.clientWidth)
+
+	/*
+		滚动距离
+		document.documentElement.scrollTop;    不兼容chrom浏览器  其他浏览器都兼容包括ie7
+		document.body.scrollTop;    兼容chrom浏览器 360兼容  不兼容火狐 ie浏览器包括ie7
+	*/
+	document.onclick = function(){
+	//alert(document.body.scrollTop)
+
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	//alert(document.body.scrollTop)
+	//var scrollTop = document.documentElement.scrollTop;
+	// if(scrollTop == 0 ){
+	// 	scrollTop = document.body.scrollTop;
+	// }
+	//alert(scrollTop)
+
+	/*
+		内容宽高
+		document.getElementById('odiv').scrollHeight;
+	*/
+	}
+}
+
+var i =0;
+// 当滚动条滚动的时候触发
+window.onscroll = function(){
+	document.title = i++;
+}
+// 当窗口大小发生改变的时候触发
+window.onresize = function(){
+	document.title = i++;
+}
+
+
+</script>
+</head>
+<body style="height:2000px;">
+</body>
+</html>
