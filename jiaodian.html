@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+	var otext = document.getElementById("text1");
+	otext.onfocus=function(){
+		if(otext.value == "请输入内容"){
+			otext.value = "";
+		}
+	};
+	otext.onblur=function(){
+		if(otext.value == ""){
+			otext.value = "请输入内容";
+		}
+	}
+
+	// obj.focus()   给指定的元素设置焦点     就是打开页面的时候光标就在指定的输入框里面，提高用户体验，参考百度
+	otext.focus();
+
+	// obj.blur  取消指定元素的焦点
+
+	// obj.select()  选中指定元素里面的文本内容   只能选中用户输入的内容
+	var obtn = document.getElementById('btn');
+	obtn.onclick = function(){
+		otext.select();
+	}
+}
+</script>
+</head>
+
+<body>
+	<input type="text" id="text1" value="请输入内容" />
+    <input type="button" value="全选" id="btn" />
+</body>
+</html>
