@@ -14,6 +14,14 @@
 		for (var i = 0; i < oli.length; i++) {
 			// alert(arr.length)
 			oli[i].style.background = arr[i%arr.length];
+			oli[i].onmouseover = function(){
+				str = this.style.background;   // 注意 这里不需要 var  否则出不来
+				// alert(str)
+				this.style.background = "gray";
+			};
+			oli[i].onmouseout = function(){
+				this.style.background = str ;
+			}
 		};
 	}
 </script>
