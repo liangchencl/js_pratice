@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	window.onload = function(){
+		var oli = document.getElementsByTagName("li");
+		var arr = ["red","yellow","blue","green"];
+		for (var i = 0; i < oli.length; i++) {
+			// alert(arr.length)
+			oli[i].style.background = arr[i%arr.length];
+		};
+	}
+</script>
+</head>
+<body>
+    <div>
+    	<ul>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	    </ul>
+    </div>
+</body>
+</html>
