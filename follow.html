@@ -16,9 +16,10 @@ window.onload=function(){
  document.onmousemove = function(ev){
  	// document.title = i++ ;
  	var scrolltop = document.body.scrollTop || document.documentElement.scrollTop;  //  兼容写法 获取滚动条的滚动距离
+ 	var scrollleft = document.body.scrollLeft || document.documentElement.scrollLeft;
  	var ev = ev || event;
- 	odiv.style.left = ev.clientX + "px";
- 	odiv.style.top = ev.clientY+scrolltop + "px";
+ 	odiv.style.left = ev.clientX + scrollleft + "px";
+ 	odiv.style.top = ev.clientY + scrolltop + "px";
  }
 
 
