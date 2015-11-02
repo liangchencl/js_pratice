@@ -8,12 +8,17 @@
 window.onload=function(){
  var i = 0;
  var odiv = document.getElementById('div1');
- 
+ // clientX  是相对于可视区的距离
+
+//如果产生了横向或者是纵向的滚动条，这个效果则会出现bug，所有应该加上滚动条滚动的距离
+
+
  document.onmousemove = function(ev){
  	// document.title = i++ ;
+ 	var scrolltop = document.body.scrollTop || document.documentElement.scrollTop;  //  兼容写法 获取滚动条的滚动距离
  	var ev = ev || event;
  	odiv.style.left = ev.clientX + "px";
- 	odiv.style.top = ev.clientY + "px";
+ 	odiv.style.top = ev.clientY+scrolltop + "px";
  }
 
 
@@ -23,7 +28,7 @@ window.onload=function(){
 	#div1 {width: 100px;height: 100px;background: #abcdef;position: relative;}
 </style>
 </head>
-<body>
+<body style="height: 2000px;">
 	<div id="div1"></div>
 </body>
 </html>
