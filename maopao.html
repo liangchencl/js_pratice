@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>冒泡</title>
+<link rel="stylesheet" href="">
+<script>
+window.onload=function(){
+	var obtn = document.getElementById('btn');
+	var odiv = document.getElementById("div1");
+	obtn.onclick = function(event){
+
+		odiv.style.display = "block";
+		event.stopPropagation();   //阻止冒泡事件
+	}
+	document.onclick =  function(){
+		odiv.style.display = "none";
+	}
+}
+</script>
+<style type="text/css">
+	#div1 {width: 100px;height: 200px;background: #abcdef;position: relative;display: none;}
+</style>
+</head>
+<body>
+	<input type="button" value="点击" id="btn">
+	<div id="div1"></div>
+</body>
+</html>
