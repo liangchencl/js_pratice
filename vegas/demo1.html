@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>vegas</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="css/vegas.css" rel="stylesheet">
+
+<style>
+	* {margin: 0;padding: 0;}
+	body{background: #ccc;}
+</style>
+</head>
+<body>
+    <div class="container" style="height: 100%;width: 100%;">
+    	<div style="height: 1000px;">
+    		<ul>
+    			<li>
+    				导航
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/vegas.js"></script>
+<script type="text/javascript">
+$(".container").vegas({
+    delay: 7000,
+    timer: true,   //控制下面的进度条的
+
+    transitionDuration: 2000,
+    overlay: 'images/overlays/08.png',
+    animation: 'random',
+    slides: [
+        { src: 'images/img-1.jpg' },
+        { src: 'images/img-2.jpg' },
+        { src: 'images/img-3.jpg' },
+        { src: 'images/img-4.jpg' }
+    ]
+});
+</script>
+</body>
+</html>
