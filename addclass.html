@@ -34,6 +34,12 @@ window.onload=function(){
 		return -1;
 	}
 }
+
+
+var a = Function.prototype.call.apply(function(a){
+    return a;
+}, [0,4,3]);
+alert(a);
 </script>
 </head>
 
