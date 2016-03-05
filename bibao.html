@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>闭包</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<!-- 闭包：就是能够读取其他函数内部变量的函数 -->
+<script type="text/javascript">
+function fun(n,o) {
+  console.log(o)
+  return {
+    fun:function(m){
+      return fun(m,n);
+    }
+  };
+}
+var a = fun(0);  a.fun(1);  a.fun(2);  a.fun(3);//undefined,?,?,?
+var b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?
+var c = fun(0).fun(1);  c.fun(2);  c.fun(3);//undefined,?,?,?
+//问:三行a,b,c的输出分别是什么？
+
+// 分析：
+// 第一行a：
+// a=fun(0)   此时调用fun(n,o)  n=0 o 为undefined；
+// a.fun(1)   调用fun:function(m)  此时m=1   然后执行 return fun(m,n) 此时m=1 n=0  然后执行fun(n,o) 把m和n当参数传人fun(n,o) 所以 打印出来的是 0 ！
+// 			同理 a.fun(2)  a.fun(3)   都是一样的，打印出来的都是 0 ；
+// 即最终答案：undefined,0,0,0
+// 			注意：如果是 console.log(n) 的话   那打印出来的就是 0 1 2 3 了
+
+
+// 先来看第三行c吧
+// fun(0)为执行第一层fun函数，.fun(1)执行的是fun(0)返回的第二层fun函数，这里语句结束，遂c存放的是fun(1)的返回值，而不是fun(0)的返回值，所以c中闭包的也是fun(1)第二次执行的n的值。c.fun(2)执行的是fun(1)返回的第二层fun函数，c.fun(3)执行的也是fun(1)返回的第二层fun函数。
+// 第一次执行fun(0) 的时候还是 undefined  此时的 n=0
+// 第二次执行 .fun(1) 时 m=1；调用第一次执行的n=0，return fun(m,n)  console.log(o) 值为0   此时的n=1
+// 第三次执行 .fun(2) 时 m=2；调用第二次执行的n=1，return fun(m,n)  console.log(o) 值为1   此时的n=2
+// 最后一次执行跟第三次是一样的，只是m的值改变了而已，所以 console.log(o) 值为1
+// 即最终答案：undefined,0,1,1
+
+
+//第二行b
+// 先从fun(0)开始看，肯定是调用的第一层fun函数；而他的返回值是一个对象，所以第二个fun(1)调用的是第二层fun函数，后面几个也是调用的第二层fun函数。
+// 在第一次调用第一层fun(0)时，o为undefined；
+// 第二次调用 .fun(1)时m为1，此时fun闭包了外层函数的n，也就是第一次调用的n=0，即m=1，n=0，并在内部调用第一层fun函数fun(1,0);所以o为0；
+// 第三次调用 .fun(2)时m为2，此时当前的fun函数不是第一次执行的返回对象，而是第二次执行的返回对象。而在第二次执行第一层fun函数时时(1,0)所以n=1,o=0,返回时闭包了第二次的n，遂在第三次调用第三层fun函数时m=2,n=1，即调用第一层fun函数fun(2,1)，所以o为1；
+// 第四次调用 .fun(3)时m为3，闭包了第三次调用的n，同理，最终调用第一层fun函数为fun(3,2)；所以o为2；
+// 即最终答案：undefined,0,1,2
+
+</script>
+</body>
+</html>
