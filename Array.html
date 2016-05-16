@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript">
+	var x ;
+	var mycars = new Array();
+	mycars[0] = "jim";
+	mycars[1] = "dive";
+	mycars[2] = "asd";
+	for(x in mycars){
+		document.write(mycars[x]+"<br/>")
+	}
+
+
+	var c = mycars.pop();  // 删除数组最后一项，并返回数组的个数  2
+	console.log(c)
+
+	var b = mycars.push("as","sdf");  // 将参数添加到原数组的末尾 并返回数组的长度 
+	console.log(b)
+	
+	var d = mycars.concat("Qwe","assd");
+	console.log(mycars)
+	console.log(d)
+
+	var e = d.join("|"); // 以 | 分隔数组成字符串  jim|dive|as|sdf|qwe|assd
+	console.log(e)
+	// e jim|dive|as|sdf|qwe|assd  
+	var f = e.split("|");  // 以 | 来分割字符串创建数组 ["jim", "dive", "as", "sdf", "qwe", "assd"]
+	console.log(f);
+
+	var g = f.reverse(); // 把数组中的元素颠倒顺序
+	console.log(g);
+	
+	g.sort()
+	console.log(g);  // 把数组重新排序  如果数组里面有undefined 则会把undefined排到最后 区分大小写
+
+	var data = [1,2,3,4,5,6];
+	// data.forEach(function(e){
+	// 	console.log(e);
+	// })
+
+	for (var i = 0; i < data.length; i++) {
+		console.log(data[i]);
+	};
+</script>
+</body>
+</html>
