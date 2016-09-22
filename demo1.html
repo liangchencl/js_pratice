@@ -16,6 +16,7 @@
     </ul>
     <!-- 图片1111.jpg如果没有则显示后面的1.jpg  -->
 	<img src="images/1111.jpg" onerror="this.src='images/1.jpg'" alt="">
+	<h2 id="tr1">0</h2>
 <script>
 	$(function(){
 		// 获取父元素的标签名
@@ -24,5 +25,23 @@
 		console.log($(".ceshi").parent())
 	});
 </script>
+<script>
+function hello(){
+	
+}
+//重复执行某个方法
+var t1 = window.setInterval(function(){
+	var n = document.getElementById("tr1").innerHTML++ ;
+	if(n >= 5){
+		n = 0;
+		document.getElementById("tr1").innerHTML = 0 ;
+		// window.clearInterval(t1);
+	}
+
+},1000);
+var t2 = window.setInterval("hello()",3000);
+//去掉定时器的方法
+window.clearInterval(t2);
+</script> 
 </body>
 </html>
